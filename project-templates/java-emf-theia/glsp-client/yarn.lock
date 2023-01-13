@@ -2615,6 +2615,14 @@
     node-pty "0.11.0-beta17"
     string-argv "^0.1.1"
 
+"@theia/property-view@1.29.2":
+  version "1.29.2"
+  resolved "https://registry.yarnpkg.com/@theia/property-view/-/property-view-1.29.2.tgz#91c217decf98a970616a4f2affe7365a92493f47"
+  integrity sha512-7CjsuX903YZfyMCqzQ4LeQomMoAi3kOOBlKVKt2H6CgWBRy7+st5mJ4Gs/YagXVGJj503XXZ2OphvV2DL897Sw==
+  dependencies:
+    "@theia/core" "1.29.2"
+    "@theia/filesystem" "1.29.2"
+
 "@theia/request@1.29.2":
   version "1.29.2"
   resolved "https://registry.yarnpkg.com/@theia/request/-/request-1.29.2.tgz#1b7940635dd287c7ce29e839bf4597fb04b05f83"

@@ -12,6 +12,7 @@
     "@theia/navigator": "1.29.2",
     "@theia/preferences": "1.29.2",
     "@theia/process": "1.29.2",
+    "@theia/property-view": "1.29.2",
     "@theia/terminal": "1.29.2",
     "@theia/workspace": "1.29.2",
     "@eclipse-glsp-examples/tasklist-theia": "1.0.0"

@@ -13,14 +13,15 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
-
-import { JsonFormsPropertyViewWidgetProvider } from '@eclipse-emfcloud/jsonforms-property-view';
-import { isGlspSelection } from '@eclipse-glsp/theia-integration';
-import { injectable } from 'inversify';
+import { REQUEST_ELEMENT_DATA_ACTION_ID } from '@eclipse-glsp-examples/tasklist-glsp/lib/actions/element-data-action';
+import { ActionHandlerRegistry } from '@eclipse-glsp/client/lib';
+import { GLSPTheiaDiagramServer } from '@eclipse-glsp/theia-integration/lib/browser';
+import { injectable } from '@theia/core/shared/inversify';
 
 @injectable()
-export class GlspPropertyViewWidgetProvider extends JsonFormsPropertyViewWidgetProvider {
-    override canHandle(selection: any): number {
-        return isGlspSelection(selection) ? 1 : 0;
+export class TasklistGLSPTheiaDiagramServer extends GLSPTheiaDiagramServer {
+    override initialize(registry: ActionHandlerRegistry): void {
+        super.initialize(registry);
+        registry.register(REQUEST_ELEMENT_DATA_ACTION_ID, this);
     }
 }

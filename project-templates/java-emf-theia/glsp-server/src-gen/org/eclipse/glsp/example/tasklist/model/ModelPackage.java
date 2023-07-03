@@ -157,13 +157,22 @@ public interface ModelPackage extends EPackage {
    int TASK_LIST__TRANSITIONS = IDENTIFIABLE_FEATURE_COUNT + 1;
 
    /**
+    * The feature id for the '<em><b>People</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int TASK_LIST__PEOPLE = IDENTIFIABLE_FEATURE_COUNT + 2;
+
+   /**
     * The number of structural features of the '<em>Task List</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-   int TASK_LIST_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 2;
+   int TASK_LIST_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 3;
 
    /**
     * The number of operations of the '<em>Task List</em>' class.
@@ -286,6 +295,53 @@ public interface ModelPackage extends EPackage {
 
 
    /**
+    * The meta object id for the '{@link org.eclipse.glsp.example.tasklist.model.impl.PersonImpl <em>Person</em>}' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see org.eclipse.glsp.example.tasklist.model.impl.PersonImpl
+    * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getPerson()
+    * @generated
+    */
+   int PERSON = 4;
+
+   /**
+    * The feature id for the '<em><b>Id</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int PERSON__ID = IDENTIFIABLE__ID;
+
+   /**
+    * The feature id for the '<em><b>Name</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int PERSON__NAME = IDENTIFIABLE__NAME;
+
+   /**
+    * The number of structural features of the '<em>Person</em>' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int PERSON_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 0;
+
+   /**
+    * The number of operations of the '<em>Person</em>' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int PERSON_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 0;
+
+
+   /**
     * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.Identifiable <em>Identifiable</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -350,6 +406,17 @@ public interface ModelPackage extends EPackage {
    EReference getTaskList_Transitions();
 
    /**
+    * Returns the meta object for the containment reference list '{@link org.eclipse.glsp.example.tasklist.model.TaskList#getPeople <em>People</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the containment reference list '<em>People</em>'.
+    * @see org.eclipse.glsp.example.tasklist.model.TaskList#getPeople()
+    * @see #getTaskList()
+    * @generated
+    */
+   EReference getTaskList_People();
+
+   /**
     * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.Task <em>Task</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -390,6 +457,16 @@ public interface ModelPackage extends EPackage {
     * @generated
     */
    EReference getTransition_Target();
+
+   /**
+    * Returns the meta object for class '{@link org.eclipse.glsp.example.tasklist.model.Person <em>Person</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for class '<em>Person</em>'.
+    * @see org.eclipse.glsp.example.tasklist.model.Person
+    * @generated
+    */
+   EClass getPerson();
 
    /**
     * Returns the factory that creates the instances of the model.
@@ -467,6 +544,14 @@ public interface ModelPackage extends EPackage {
       EReference TASK_LIST__TRANSITIONS = eINSTANCE.getTaskList_Transitions();
 
       /**
+       * The meta object literal for the '<em><b>People</b></em>' containment reference list feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EReference TASK_LIST__PEOPLE = eINSTANCE.getTaskList_People();
+
+      /**
        * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.TaskImpl <em>Task</em>}' class.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
@@ -501,6 +586,16 @@ public interface ModelPackage extends EPackage {
        * @generated
        */
       EReference TRANSITION__TARGET = eINSTANCE.getTransition_Target();
+
+      /**
+       * The meta object literal for the '{@link org.eclipse.glsp.example.tasklist.model.impl.PersonImpl <em>Person</em>}' class.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @see org.eclipse.glsp.example.tasklist.model.impl.PersonImpl
+       * @see org.eclipse.glsp.example.tasklist.model.impl.ModelPackageImpl#getPerson()
+       * @generated
+       */
+      EClass PERSON = eINSTANCE.getPerson();
 
    }
 

@@ -15,6 +15,7 @@
  ********************************************************************************/
 package org.eclipse.glsp.example.javaemf;
 
+import org.eclipse.glsp.example.javaemf.handler.CreatePersonNodeHandler;
 import org.eclipse.glsp.example.javaemf.handler.CreateTaskNodeHandler;
 import org.eclipse.glsp.example.javaemf.handler.DeleteTaskNodeHandler;
 import org.eclipse.glsp.example.javaemf.model.TaskListGModelFactory;
@@ -66,6 +67,7 @@ public class TaskListDiagramModule extends EMFNotationDiagramModule {
       super.configureOperationHandlers(binding);
       binding.add(CreateTaskNodeHandler.class);
       binding.add(DeleteTaskNodeHandler.class);
+      binding.add(CreatePersonNodeHandler.class);
    }
 
    @Override

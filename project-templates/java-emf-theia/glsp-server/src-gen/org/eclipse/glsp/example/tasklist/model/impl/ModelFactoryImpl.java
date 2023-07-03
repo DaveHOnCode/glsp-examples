@@ -67,6 +67,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
          case ModelPackage.TASK_LIST: return createTaskList();
          case ModelPackage.TASK: return createTask();
          case ModelPackage.TRANSITION: return createTransition();
+         case ModelPackage.PERSON: return createPerson();
          default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
       }
@@ -103,6 +104,17 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
    public Transition createTransition() {
       TransitionImpl transition = new TransitionImpl();
       return transition;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   @Override
+   public Person createPerson() {
+      PersonImpl person = new PersonImpl();
+      return person;
    }
 
    /**

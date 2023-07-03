@@ -15,20 +15,25 @@
  ********************************************************************************/
 import {
     configureDefaultModelElements,
+    configureModelElement,
     ConsoleLogger,
     createClientContainer,
     LogLevel,
     overrideViewerOptions,
+    RoundedCornerNodeView,
+    SNode,
     TYPES
 } from '@eclipse-glsp/client';
 import { Container, ContainerModule } from '@theia/core/shared/inversify';
 import '../css/diagram.css';
+import { CustomTypes } from './custom-types';
 
 const tasklistDiagramModule = new ContainerModule((bind, unbind, isBound, rebind) => {
     rebind(TYPES.ILogger).to(ConsoleLogger).inSingletonScope();
     rebind(TYPES.LogLevel).toConstantValue(LogLevel.warn);
     const context = { bind, unbind, isBound, rebind };
     configureDefaultModelElements(context);
+    configureModelElement(context, CustomTypes.PERSON, SNode, RoundedCornerNodeView);
 });
 
 export default function createContainer(widgetId: string): Container {

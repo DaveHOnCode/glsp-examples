@@ -19,6 +19,7 @@ import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.glsp.example.javaemf.TaskListModelTypes;
+import org.eclipse.glsp.example.tasklist.model.Person;
 import org.eclipse.glsp.example.tasklist.model.Task;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
 import org.eclipse.glsp.graph.DefaultTypes;
@@ -43,6 +44,9 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
          taskList.getTasks().stream()
             .map(this::createTaskNode)
             .forEachOrdered(graph.getChildren()::add);
+         taskList.getPeople().stream()
+            .map(this::createPersonNode)
+            .forEachOrdered(graph.getChildren()::add);
       }
    }
 
@@ -55,6 +59,17 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
 
       applyShapeData(task, taskNodeBuilder);
       return taskNodeBuilder.build();
+   }
+
+   protected GNode createPersonNode(final Person person) {
+      GNodeBuilder personNodeBuilder = new GNodeBuilder(TaskListModelTypes.PERSON)
+         .id(idGenerator.getOrCreateId(person))
+         .addCssClass("person-node")
+         .add(new GLabelBuilder(DefaultTypes.LABEL).text(person.getName()).id(person.getId() + "_label").build())
+         .layout(GConstants.Layout.HBOX, Map.of(GLayoutOptions.KEY_PADDING_LEFT, 5));
+
+      applyShapeData(person, personNodeBuilder);
+      return personNodeBuilder.build();
    }
 
 }

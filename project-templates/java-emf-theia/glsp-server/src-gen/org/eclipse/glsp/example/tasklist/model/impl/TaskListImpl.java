@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.glsp.example.tasklist.model.ModelPackage;
+import org.eclipse.glsp.example.tasklist.model.Person;
 import org.eclipse.glsp.example.tasklist.model.Task;
 import org.eclipse.glsp.example.tasklist.model.TaskList;
 import org.eclipse.glsp.example.tasklist.model.Transition;
@@ -37,6 +38,7 @@ import org.eclipse.glsp.example.tasklist.model.Transition;
  * <ul>
  *   <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getTasks <em>Tasks</em>}</li>
  *   <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getTransitions <em>Transitions</em>}</li>
+ *   <li>{@link org.eclipse.glsp.example.tasklist.model.impl.TaskListImpl#getPeople <em>People</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,6 +63,16 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
     * @ordered
     */
    protected EList<Transition> transitions;
+
+   /**
+    * The cached value of the '{@link #getPeople() <em>People</em>}' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see #getPeople()
+    * @generated
+    * @ordered
+    */
+   protected EList<Person> people;
 
    /**
     * <!-- begin-user-doc -->
@@ -113,12 +125,27 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
     * @generated
     */
    @Override
+   public EList<Person> getPeople() {
+      if (people == null) {
+         people = new EObjectContainmentEList<Person>(Person.class, this, ModelPackage.TASK_LIST__PEOPLE);
+      }
+      return people;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   @Override
    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
       switch (featureID) {
          case ModelPackage.TASK_LIST__TASKS:
             return ((InternalEList<?>)getTasks()).basicRemove(otherEnd, msgs);
          case ModelPackage.TASK_LIST__TRANSITIONS:
             return ((InternalEList<?>)getTransitions()).basicRemove(otherEnd, msgs);
+         case ModelPackage.TASK_LIST__PEOPLE:
+            return ((InternalEList<?>)getPeople()).basicRemove(otherEnd, msgs);
       }
       return super.eInverseRemove(otherEnd, featureID, msgs);
    }
@@ -135,6 +162,8 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
             return getTasks();
          case ModelPackage.TASK_LIST__TRANSITIONS:
             return getTransitions();
+         case ModelPackage.TASK_LIST__PEOPLE:
+            return getPeople();
       }
       return super.eGet(featureID, resolve, coreType);
    }
@@ -156,6 +185,10 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
             getTransitions().clear();
             getTransitions().addAll((Collection<? extends Transition>)newValue);
             return;
+         case ModelPackage.TASK_LIST__PEOPLE:
+            getPeople().clear();
+            getPeople().addAll((Collection<? extends Person>)newValue);
+            return;
       }
       super.eSet(featureID, newValue);
    }
@@ -174,6 +207,9 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
          case ModelPackage.TASK_LIST__TRANSITIONS:
             getTransitions().clear();
             return;
+         case ModelPackage.TASK_LIST__PEOPLE:
+            getPeople().clear();
+            return;
       }
       super.eUnset(featureID);
    }
@@ -190,6 +226,8 @@ public class TaskListImpl extends IdentifiableImpl implements TaskList {
             return tasks != null && !tasks.isEmpty();
          case ModelPackage.TASK_LIST__TRANSITIONS:
             return transitions != null && !transitions.isEmpty();
+         case ModelPackage.TASK_LIST__PEOPLE:
+            return people != null && !people.isEmpty();
       }
       return super.eIsSet(featureID);
    }

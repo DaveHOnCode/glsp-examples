@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.eclipse.glsp.example.tasklist.model.TaskList#getTasks <em>Tasks</em>}</li>
  *   <li>{@link org.eclipse.glsp.example.tasklist.model.TaskList#getTransitions <em>Transitions</em>}</li>
+ *   <li>{@link org.eclipse.glsp.example.tasklist.model.TaskList#getPeople <em>People</em>}</li>
  * </ul>
  *
  * @see org.eclipse.glsp.example.tasklist.model.ModelPackage#getTaskList()
@@ -53,5 +54,17 @@ public interface TaskList extends Identifiable {
     * @generated
     */
    EList<Transition> getTransitions();
+
+   /**
+    * Returns the value of the '<em><b>People</b></em>' containment reference list.
+    * The list contents are of type {@link org.eclipse.glsp.example.tasklist.model.Person}.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the value of the '<em>People</em>' containment reference list.
+    * @see org.eclipse.glsp.example.tasklist.model.ModelPackage#getTaskList_People()
+    * @model containment="true"
+    * @generated
+    */
+   EList<Person> getPeople();
 
 } // TaskList

@@ -15,8 +15,12 @@
  ********************************************************************************/
 package org.eclipse.glsp.example.javaemf;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.glsp.graph.GraphPackage;
 import org.eclipse.glsp.server.diagram.BaseDiagramConfiguration;
 import org.eclipse.glsp.server.types.EdgeTypeHint;
 import org.eclipse.glsp.server.types.ShapeTypeHint;
@@ -26,7 +30,15 @@ public class TaskListDiagramConfiguration extends BaseDiagramConfiguration {
    @Override
    public List<ShapeTypeHint> getShapeTypeHints() {
       // tasks can be moved, deleted and resized
-      return List.of(new ShapeTypeHint(TaskListModelTypes.TASK, true, true, true, false));
+      return List.of(new ShapeTypeHint(TaskListModelTypes.TASK, true, true, true, false),
+         new ShapeTypeHint(TaskListModelTypes.PERSON, true, true, true, false));
+   }
+
+   @Override
+   public Map<String, EClass> getTypeMappings() {
+      Map<String, EClass> mapping = new HashMap<>(super.getTypeMappings());
+      mapping.put(TaskListModelTypes.PERSON, GraphPackage.Literals.GNODE);
+      return mapping;
    }
 
    @Override

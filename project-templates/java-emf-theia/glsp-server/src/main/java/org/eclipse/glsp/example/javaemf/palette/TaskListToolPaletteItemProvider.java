@@ -18,28 +18,29 @@ package org.eclipse.glsp.example.javaemf.palette;
 import java.util.List;
 import java.util.Map;
 
-import com.google.common.collect.Lists;
-
 import org.eclipse.glsp.example.javaemf.TaskListModelTypes;
 import org.eclipse.glsp.server.actions.TriggerNodeCreationAction;
 import org.eclipse.glsp.server.features.toolpalette.PaletteItem;
 import org.eclipse.glsp.server.features.toolpalette.ToolPaletteItemProvider;
 
+import com.google.common.collect.Lists;
+
 public class TaskListToolPaletteItemProvider implements ToolPaletteItemProvider {
 
-    @Override
-    public List<PaletteItem> getItems(Map<String, String> args) {
-        return Lists.newArrayList(nodes());
-    }
+   @Override
+   public List<PaletteItem> getItems(final Map<String, String> args) {
+      return Lists.newArrayList(nodes());
+   }
 
-    private PaletteItem nodes() {
-        PaletteItem createTask = node(TaskListModelTypes.TASK, "Task");
-        List<PaletteItem> nodes = Lists.newArrayList(createTask);
-        return PaletteItem.createPaletteGroup("nodes", "Nodes", nodes, "symbol-property");
-    }
+   private PaletteItem nodes() {
+      PaletteItem createTask = node(TaskListModelTypes.TASK, "Task");
+      PaletteItem createPerson = node(TaskListModelTypes.PERSON, "Person");
+      List<PaletteItem> nodes = Lists.newArrayList(createTask, createPerson);
+      return PaletteItem.createPaletteGroup("nodes", "Nodes", nodes, "symbol-property");
+   }
 
-    private PaletteItem node(String elementTypeId, String label) {
-        return new PaletteItem(elementTypeId, label, new TriggerNodeCreationAction(elementTypeId));
-    }
+   private PaletteItem node(final String elementTypeId, final String label) {
+      return new PaletteItem(elementTypeId, label, new TriggerNodeCreationAction(elementTypeId));
+   }
 
 }
